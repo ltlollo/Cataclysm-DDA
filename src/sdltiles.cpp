@@ -3659,7 +3659,7 @@ void sfx::load_playlist( JsonObject &jsobj )
 const sound_effect* find_random_effect( const id_and_variant &id_variants_pair )
 {
     const auto iter = sound_effects_p.find( id_variants_pair );
-    if( iter == sound_effects_p.end() ) {
+    if( iter == sound_effects_p.end() || iter->second.empty()) {               
         return nullptr;
     }
     return &random_entry_ref( iter->second );
